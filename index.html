@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#03030b">
+<meta name="theme-color" content="#02030a">
 
 <title>𓆩⚡VØRKNYX MC ⚔𓆪</title>
 
@@ -27,9 +27,9 @@ body{
     overflow-x:hidden;
 }
 
-/* =====================================================
-   SPACE BACKGROUND
-===================================================== */
+/* =========================
+   ANIMATED SPACE BACKGROUND
+========================= */
 
 .space{
     position:fixed;
@@ -153,10 +153,9 @@ body{
     }
 }
 
-
-/* =====================================================
+/* =========================
    NAVBAR
-===================================================== */
+========================= */
 
 nav{
     position:fixed;
@@ -213,6 +212,7 @@ nav{
 
 .nav-links a:hover{
     color:white;
+
     text-shadow:0 0 15px #9b5cff;
 }
 
@@ -243,10 +243,9 @@ nav{
     transform:translateY(-2px);
 }
 
-
-/* =====================================================
+/* =========================
    HERO
-===================================================== */
+========================= */
 
 .hero{
     min-height:100vh;
@@ -285,13 +284,11 @@ nav{
     margin-bottom:30px;
 }
 
-
-/* =====================================================
-   PLANETARY SERVER CORE
-===================================================== */
+/* =========================
+   VØRKNYX CORE
+========================= */
 
 .planet-core{
-
     position:relative;
 
     width:300px;
@@ -309,8 +306,7 @@ nav{
     );
 }
 
-
-/* OUTER SPACE RING */
+/* OUTER RING */
 
 .planet-core::before{
 
@@ -322,7 +318,7 @@ nav{
 
     border-radius:50%;
 
-    border:1px solid rgba(145,85,255,.25);
+    border:1px solid rgba(145,85,255,.28);
 
     box-shadow:
         0 0 30px rgba(115,50,255,.2),
@@ -331,8 +327,7 @@ nav{
     animation:coreRotate 25s linear infinite;
 }
 
-
-/* INNER RING */
+/* SECOND RING */
 
 .planet-core::after{
 
@@ -348,7 +343,6 @@ nav{
 
     animation:coreRotateReverse 15s linear infinite;
 }
-
 
 /* LOGO */
 
@@ -393,7 +387,9 @@ nav{
     animation:logoPulse 3s ease-in-out infinite alternate;
 }
 
-.server-logo .big-l{
+/* V */
+
+.server-logo .big-v{
 
     font-family:Orbitron,sans-serif;
 
@@ -414,6 +410,8 @@ nav{
         0 0 40px #743aff;
 }
 
+/* MC */
+
 .server-logo .mc{
 
     margin-top:8px;
@@ -431,301 +429,7 @@ nav{
     text-shadow:0 0 15px #884dff;
 }
 
-
-/* =====================================================
-   ORBIT SYSTEM
-===================================================== */
-
-.orbit-system{
-
-    position:absolute;
-
-    inset:0;
-
-    border-radius:50%;
-
-    pointer-events:none;
-}
-
-
-/* ORBIT LINES */
-
-.orbit-line{
-
-    position:absolute;
-
-    top:50%;
-    left:50%;
-
-    border-radius:50%;
-
-    border:1px solid rgba(160,110,255,.25);
-
-    transform:translate(-50%,-50%);
-}
-
-.orbit-line.one{
-    width:215px;
-    height:95px;
-
-    transform:
-        translate(-50%,-50%)
-        rotate(22deg);
-}
-
-.orbit-line.two{
-    width:250px;
-    height:120px;
-
-    transform:
-        translate(-50%,-50%)
-        rotate(-28deg);
-}
-
-.orbit-line.three{
-    width:290px;
-    height:145px;
-
-    transform:
-        translate(-50%,-50%)
-        rotate(12deg);
-
-    border-color:rgba(70,210,255,.18);
-}
-
-
-/* PLANETS */
-
-.planet{
-
-    position:absolute;
-
-    top:50%;
-    left:50%;
-
-    z-index:20;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    border-radius:50%;
-
-    animation-timing-function:linear;
-    animation-iteration-count:infinite;
-    animation-timing-function:linear;
-}
-
-
-/* MOON */
-
-.moon-orbit{
-
-    width:215px;
-    height:95px;
-
-    margin-left:-107.5px;
-    margin-top:-47.5px;
-
-    animation:moonOrbit 6s linear infinite;
-}
-
-.moon{
-
-    position:absolute;
-
-    top:-9px;
-    left:50%;
-
-    width:25px;
-    height:25px;
-
-    transform:translateX(-50%);
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            #fff,
-            #c7c8d4 55%,
-            #77798b
-        );
-
-    box-shadow:
-        0 0 10px rgba(255,255,255,.8),
-        0 0 25px rgba(180,190,255,.5);
-}
-
-
-/* EARTH */
-
-.earth-orbit{
-
-    width:250px;
-    height:120px;
-
-    margin-left:-125px;
-    margin-top:-60px;
-
-    animation:earthOrbit 9s linear infinite;
-}
-
-.earth{
-
-    position:absolute;
-
-    top:-15px;
-    left:50%;
-
-    width:36px;
-    height:36px;
-
-    transform:translateX(-50%);
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            #65eaff,
-            #1874d1 40%,
-            #09244c 100%
-        );
-
-    box-shadow:
-        0 0 10px #42dfff,
-        0 0 30px rgba(0,190,255,.6);
-
-    overflow:hidden;
-}
-
-
-/* EARTH LAND */
-
-.earth::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:16px;
-    height:10px;
-
-    top:8px;
-    left:6px;
-
-    border-radius:60% 40% 55% 45%;
-
-    background:#4cff9a;
-
-    box-shadow:
-        12px 10px 0 -2px #4cff9a;
-}
-
-
-/* SATURN */
-
-.saturn-orbit{
-
-    width:290px;
-    height:145px;
-
-    margin-left:-145px;
-    margin-top:-72.5px;
-
-    animation:saturnOrbit 12s linear infinite;
-}
-
-.saturn{
-
-    position:absolute;
-
-    top:-17px;
-    left:50%;
-
-    width:38px;
-    height:38px;
-
-    transform:translateX(-50%);
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            #ffeab1,
-            #c89b53 55%,
-            #765329 100%
-        );
-
-    box-shadow:
-        0 0 15px rgba(255,205,115,.7);
-}
-
-
-/* SATURN RINGS */
-
-.saturn::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:58px;
-    height:17px;
-
-    top:10px;
-    left:50%;
-
-    transform:
-        translateX(-50%)
-        rotate(-15deg);
-
-    border-radius:50%;
-
-    border:3px solid rgba(255,215,140,.75);
-
-    box-shadow:
-        0 0 8px rgba(255,200,100,.5);
-}
-
-
-/* ORBIT ANIMATIONS */
-
-@keyframes moonOrbit{
-
-    from{
-        transform:rotate(0deg);
-    }
-
-    to{
-        transform:rotate(360deg);
-    }
-}
-
-@keyframes earthOrbit{
-
-    from{
-        transform:rotate(0deg);
-    }
-
-    to{
-        transform:rotate(-360deg);
-    }
-}
-
-@keyframes saturnOrbit{
-
-    from{
-        transform:rotate(360deg);
-    }
-
-    to{
-        transform:rotate(0deg);
-    }
-}
+/* CORE ROTATION */
 
 @keyframes coreRotate{
 
@@ -770,7 +474,6 @@ nav{
             inset 0 0 35px rgba(255,255,255,.12);
     }
 }
-
 
 /* HERO TEXT */
 
@@ -826,7 +529,6 @@ nav{
 
     line-height:1.9;
 }
-
 
 /* BUTTONS */
 
@@ -884,10 +586,9 @@ nav{
     border:1px solid rgba(255,255,255,.12);
 }
 
-
-/* =====================================================
+/* =========================
    SECTIONS
-===================================================== */
+========================= */
 
 section{
 
@@ -932,10 +633,9 @@ section{
     font-size:12px;
 }
 
-
-/* =====================================================
+/* =========================
    SERVER
-===================================================== */
+========================= */
 
 .server-box{
 
@@ -1007,10 +707,9 @@ section{
     margin-top:8px;
 }
 
-
-/* =====================================================
+/* =========================
    GAME MODES
-===================================================== */
+========================= */
 
 .modes{
 
@@ -1075,10 +774,9 @@ section{
     line-height:1.8;
 }
 
-
-/* =====================================================
+/* =========================
    ABOUT
-===================================================== */
+========================= */
 
 .about{
 
@@ -1134,10 +832,9 @@ section{
     font-size:10px;
 }
 
-
-/* =====================================================
+/* =========================
    TEAM
-===================================================== */
+========================= */
 
 .team-grid{
 
@@ -1343,10 +1040,9 @@ section{
     color:#777b8a;
 }
 
-
-/* =====================================================
+/* =========================
    RULES
-===================================================== */
+========================= */
 
 .rules{
 
@@ -1390,10 +1086,9 @@ section{
     line-height:1.6;
 }
 
-
-/* =====================================================
+/* =========================
    DISCORD CTA
-===================================================== */
+========================= */
 
 .cta{
 
@@ -1436,14 +1131,13 @@ section{
     font-size:13px;
 }
 
-
-/* =====================================================
+/* =========================
    FOOTER
-===================================================== */
+========================= */
 
 footer{
 
-    padding:40px 6%;
+    padding:45px 6%;
 
     text-align:center;
 
@@ -1458,10 +1152,27 @@ footer strong{
     color:#a66aff;
 }
 
+.made-by{
 
-/* =====================================================
+    margin-top:14px;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    color:#676a78;
+}
+
+.made-by span{
+
+    color:#a66aff;
+
+    text-shadow:0 0 12px rgba(166,102,255,.6);
+}
+
+/* =========================
    TABLET
-===================================================== */
+========================= */
 
 @media(max-width:850px){
 
@@ -1478,51 +1189,12 @@ footer strong{
         height:250px;
     }
 
-    .orbit-line.one{
-        width:180px;
-        height:80px;
-    }
-
-    .orbit-line.two{
-        width:210px;
-        height:100px;
-    }
-
-    .orbit-line.three{
-        width:240px;
-        height:120px;
-    }
-
-    .moon-orbit{
-        width:180px;
-        height:80px;
-
-        margin-left:-90px;
-        margin-top:-40px;
-    }
-
-    .earth-orbit{
-        width:210px;
-        height:100px;
-
-        margin-left:-105px;
-        margin-top:-50px;
-    }
-
-    .saturn-orbit{
-        width:240px;
-        height:120px;
-
-        margin-left:-120px;
-        margin-top:-60px;
-    }
-
     .server-logo{
         width:115px;
         height:115px;
     }
 
-    .server-logo .big-l{
+    .server-logo .big-v{
         font-size:60px;
     }
 
@@ -1551,10 +1223,9 @@ footer strong{
     }
 }
 
-
-/* =====================================================
+/* =========================
    MOBILE
-===================================================== */
+========================= */
 
 @media(max-width:520px){
 
@@ -1590,73 +1261,12 @@ footer strong{
         inset:23px;
     }
 
-    .orbit-line.one{
-        width:145px;
-        height:65px;
-    }
-
-    .orbit-line.two{
-        width:175px;
-        height:82px;
-    }
-
-    .orbit-line.three{
-        width:198px;
-        height:100px;
-    }
-
-    .moon-orbit{
-        width:145px;
-        height:65px;
-
-        margin-left:-72.5px;
-        margin-top:-32.5px;
-    }
-
-    .moon{
-        width:20px;
-        height:20px;
-    }
-
-    .earth-orbit{
-        width:175px;
-        height:82px;
-
-        margin-left:-87.5px;
-        margin-top:-41px;
-    }
-
-    .earth{
-        width:29px;
-        height:29px;
-    }
-
-    .saturn-orbit{
-        width:198px;
-        height:100px;
-
-        margin-left:-99px;
-        margin-top:-50px;
-    }
-
-    .saturn{
-        width:30px;
-        height:30px;
-    }
-
-    .saturn::after{
-        width:45px;
-        height:13px;
-
-        top:8px;
-    }
-
     .server-logo{
         width:92px;
         height:92px;
     }
 
-    .server-logo .big-l{
+    .server-logo .big-v{
         font-size:47px;
     }
 
@@ -1695,8 +1305,7 @@ footer strong{
     }
 }
 
-
-/* ACCESSIBILITY */
+/* REDUCE MOTION */
 
 @media(prefers-reduced-motion:reduce){
 
@@ -1714,13 +1323,11 @@ footer strong{
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =====================================================
-     SPACE BACKGROUND
-===================================================== -->
+<!-- =========================
+     BACKGROUND
+========================= -->
 
 <div class="space">
 
@@ -1755,10 +1362,9 @@ footer strong{
 
 </div>
 
-
-<!-- =====================================================
-     NAV
-===================================================== -->
+<!-- =========================
+     NAVIGATION
+========================= -->
 
 <nav>
 
@@ -1787,10 +1393,9 @@ footer strong{
 
 </nav>
 
-
-<!-- =====================================================
+<!-- =========================
      HERO
-===================================================== -->
+========================= -->
 
 <section class="hero" id="home">
 
@@ -1800,52 +1405,14 @@ footer strong{
         ⚡ OFFICIAL VØRKNYX MC NETWORK
     </div>
 
-
-    <!-- PLANETARY LOGO -->
+    <!-- VØRKNYX CORE -->
 
     <div class="planet-core">
 
-
-        <!-- ORBIT LINES -->
-
-        <div class="orbit-line one"></div>
-        <div class="orbit-line two"></div>
-        <div class="orbit-line three"></div>
-
-
-        <!-- MOON -->
-
-        <div class="planet moon-orbit">
-
-            <div class="moon"></div>
-
-        </div>
-
-
-        <!-- EARTH -->
-
-        <div class="planet earth-orbit">
-
-            <div class="earth"></div>
-
-        </div>
-
-
-        <!-- SATURN -->
-
-        <div class="planet saturn-orbit">
-
-            <div class="saturn"></div>
-
-        </div>
-
-
-        <!-- SERVER LOGO -->
-
         <div class="server-logo">
 
-            <div class="big-l">
-                L
+            <div class="big-v">
+                V
             </div>
 
             <div class="mc">
@@ -1856,11 +1423,9 @@ footer strong{
 
     </div>
 
-
     <h1>
         <span>VØRKNYX MC</span>
     </h1>
-
 
     <p>
 
@@ -1870,7 +1435,6 @@ footer strong{
         an active community.
 
     </p>
-
 
     <div class="buttons">
 
@@ -1882,7 +1446,6 @@ footer strong{
 
         </a>
 
-
         <a
             href="https://discord.gg/8ZCqBp2cg"
             target="_blank"
@@ -1891,7 +1454,6 @@ footer strong{
             💬 Discord
 
         </a>
-
 
         <a
             href="https://www.youtube.com/@JustinPlayzzYTT"
@@ -1908,10 +1470,9 @@ footer strong{
 
 </section>
 
-
-<!-- =====================================================
+<!-- =========================
      SERVER
-===================================================== -->
+========================= -->
 
 <section id="server">
 
@@ -1926,7 +1487,6 @@ footer strong{
     </p>
 
 </div>
-
 
 <div class="server-box">
 
@@ -1943,7 +1503,6 @@ footer strong{
             </div>
 
         </div>
-
 
         <div class="ip-card">
 
@@ -1967,10 +1526,9 @@ footer strong{
 
 </section>
 
-
-<!-- =====================================================
-     MODES
-===================================================== -->
+<!-- =========================
+     GAME MODES
+========================= -->
 
 <section id="modes">
 
@@ -1986,9 +1544,7 @@ footer strong{
 
 </div>
 
-
 <div class="modes">
-
 
     <div class="mode">
 
@@ -2007,7 +1563,6 @@ footer strong{
 
     </div>
 
-
     <div class="mode">
 
         <div class="mode-icon">
@@ -2024,7 +1579,6 @@ footer strong{
         </p>
 
     </div>
-
 
     <div class="mode">
 
@@ -2043,15 +1597,13 @@ footer strong{
 
     </div>
 
-
 </div>
 
 </section>
 
-
-<!-- =====================================================
+<!-- =========================
      COMMUNITY
-===================================================== -->
+========================= -->
 
 <section>
 
@@ -2065,7 +1617,6 @@ footer strong{
 
 </div>
 
-
 <div class="about">
 
     <p>
@@ -2076,7 +1627,6 @@ footer strong{
         having fun together.
 
     </p>
-
 
     <div class="offer">
 
@@ -2093,10 +1643,9 @@ footer strong{
 
 </section>
 
-
-<!-- =====================================================
+<!-- =========================
      TEAM
-===================================================== -->
+========================= -->
 
 <section id="team">
 
@@ -2116,9 +1665,7 @@ footer strong{
 
 </div>
 
-
 <div class="team-grid">
-
 
     <!-- OWNER -->
 
@@ -2147,7 +1694,6 @@ footer strong{
 
     </div>
 
-
     <!-- FOUNDER -->
 
     <div class="team-card cyan">
@@ -2174,7 +1720,6 @@ footer strong{
         </div>
 
     </div>
-
 
     <!-- FOUNDER 2 -->
 
@@ -2203,7 +1748,6 @@ footer strong{
 
     </div>
 
-
     <!-- MANAGER -->
 
     <div class="team-card gold">
@@ -2230,7 +1774,6 @@ footer strong{
         </div>
 
     </div>
-
 
     <!-- MODERATOR -->
 
@@ -2259,7 +1802,6 @@ footer strong{
 
     </div>
 
-
     <!-- BROTHER -->
 
     <div class="team-card purple">
@@ -2287,15 +1829,13 @@ footer strong{
 
     </div>
 
-
 </div>
 
 </section>
 
-
-<!-- =====================================================
+<!-- =========================
      RULES
-===================================================== -->
+========================= -->
 
 <section id="rules">
 
@@ -2314,7 +1854,6 @@ footer strong{
     </p>
 
 </div>
-
 
 <div class="rules">
 
@@ -2362,10 +1901,9 @@ footer strong{
 
 </section>
 
-
-<!-- =====================================================
+<!-- =========================
      DISCORD
-===================================================== -->
+========================= -->
 
 <section>
 
@@ -2380,7 +1918,6 @@ footer strong{
         and community chats — join our Discord.
     </p>
 
-
     <div class="buttons">
 
         <a
@@ -2391,7 +1928,6 @@ footer strong{
             💬 Join Discord
 
         </a>
-
 
         <a
             href="https://www.youtube.com/@JustinPlayzzYTT"
@@ -2408,10 +1944,9 @@ footer strong{
 
 </section>
 
-
-<!-- =====================================================
+<!-- =========================
      FOOTER
-===================================================== -->
+========================= -->
 
 <footer>
 
@@ -2422,6 +1957,10 @@ footer strong{
     <p style="margin-top:8px;">
         © 2026 Vorknyx MC • All Rights Reserved
     </p>
+
+    <div class="made-by">
+        Made by <span>ananadu_failure</span> ✦
+    </div>
 
 </footer>
 
