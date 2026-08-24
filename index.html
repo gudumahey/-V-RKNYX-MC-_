@@ -3,37 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>𓆩⚡ VØRKNYX MC ⚔𓆪</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Orbitron:wght@500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#090b16">
+<title>VØRKNYX MC ⚡ | Official Minecraft Server</title>
 
 <style>
-
-/* =====================================================
-   ROOT
-===================================================== */
-
-:root{
-    --bg:#03040a;
-    --purple:#8b5cf6;
-    --violet:#a78bfa;
-    --cyan:#22d3ee;
-    --blue:#3b82f6;
-    --pink:#ec4899;
-    --green:#22c55e;
-    --gold:#facc15;
-    --red:#ef4444;
-    --orange:#fb923c;
-}
-
-
-/* =====================================================
-   RESET
-===================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap');
 
 *{
     margin:0;
@@ -46,2900 +20,1095 @@ html{
 }
 
 body{
-    background:#03040a;
-    color:white;
-    font-family:Poppins,sans-serif;
+    font-family:'Poppins',sans-serif;
+    background:#05060c;
+    color:#fff;
     overflow-x:hidden;
 }
 
+/* ================= BACKGROUND ================= */
 
-/* =====================================================
-   ANIMATED BACKGROUND
-===================================================== */
-
-.animated-bg{
+.background{
     position:fixed;
     inset:0;
-    overflow:hidden;
-    pointer-events:none;
     z-index:-10;
-
+    overflow:hidden;
     background:
-        radial-gradient(
-            circle at 15% 20%,
-            rgba(139,92,246,.15),
-            transparent 25%
-        ),
-        radial-gradient(
-            circle at 85% 20%,
-            rgba(34,211,238,.10),
-            transparent 25%
-        ),
-        radial-gradient(
-            circle at 50% 100%,
-            rgba(236,72,153,.08),
-            transparent 30%
-        ),
-        #03040a;
+        radial-gradient(circle at 20% 20%,rgba(130,70,255,.18),transparent 30%),
+        radial-gradient(circle at 80% 30%,rgba(0,220,255,.14),transparent 30%),
+        radial-gradient(circle at 50% 90%,rgba(255,0,120,.10),transparent 30%),
+        #05060c;
 }
 
-
-/* Perspective grid */
-
-.animated-bg::before{
-    content:"";
+.grid{
     position:absolute;
-    inset:-100px;
-
+    inset:-50%;
+    width:200%;
+    height:200%;
     background-image:
-        linear-gradient(
-            rgba(139,92,246,.07) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(34,211,238,.055) 1px,
-            transparent 1px
-        );
-
+        linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
     background-size:70px 70px;
-
-    transform:
-        perspective(500px)
-        rotateX(60deg)
-        scale(1.8);
-
-    transform-origin:center bottom;
-
+    transform:perspective(500px) rotateX(60deg);
     animation:gridMove 12s linear infinite;
-
-    opacity:.4;
 }
 
 @keyframes gridMove{
-
-    from{
-        background-position:0 0,0 0;
-    }
-
-    to{
-        background-position:0 140px,140px 0;
-    }
-
+    from{transform:perspective(500px) rotateX(60deg) translateY(0);}
+    to{transform:perspective(500px) rotateX(60deg) translateY(70px);}
 }
 
-
-/* Scan beam */
-
-.animated-bg::after{
-    content:"";
-
+.orb{
     position:absolute;
-
-    left:-20%;
-    width:140%;
-
-    height:2px;
-
-    top:-10%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            transparent,
-            rgba(139,92,246,.8),
-            rgba(34,211,238,.8),
-            transparent
-        );
-
-    filter:blur(2px);
-
-    animation:scanLine 7s ease-in-out infinite;
-
-    opacity:.5;
-}
-
-@keyframes scanLine{
-
-    0%{
-        top:-10%;
-        opacity:0;
-    }
-
-    15%{
-        opacity:.5;
-    }
-
-    50%{
-        opacity:.8;
-    }
-
-    85%{
-        opacity:.4;
-    }
-
-    100%{
-        top:110%;
-        opacity:0;
-    }
-
-}
-
-
-/* =====================================================
-   GLOW ORBS
-===================================================== */
-
-.glow-orb{
-    position:absolute;
-
     border-radius:50%;
-
-    filter:blur(80px);
-
-    opacity:.18;
-
-    animation:
-        orbFloat
-        12s
-        ease-in-out
-        infinite
-        alternate;
+    filter:blur(5px);
+    opacity:.45;
+    animation:orbFloat 9s ease-in-out infinite alternate;
 }
 
-.orb-1{
-    width:330px;
-    height:330px;
-
-    left:-100px;
-    top:12%;
-
-    background:#8b5cf6;
+.orb.one{
+    width:230px;
+    height:230px;
+    background:#7b2cff;
+    left:-80px;
+    top:15%;
 }
 
-.orb-2{
-    width:300px;
-    height:300px;
-
-    right:-90px;
+.orb.two{
+    width:190px;
+    height:190px;
+    background:#00d9ff;
+    right:-70px;
     top:35%;
-
-    background:#22d3ee;
-
-    animation-delay:-4s;
+    animation-delay:2s;
 }
 
-.orb-3{
-    width:350px;
-    height:350px;
-
-    left:40%;
-    bottom:-190px;
-
-    background:#ec4899;
-
-    animation-delay:-7s;
+.orb.three{
+    width:150px;
+    height:150px;
+    background:#ff1688;
+    left:45%;
+    bottom:-50px;
+    animation-delay:4s;
 }
 
 @keyframes orbFloat{
-
-    0%{
-        transform:translate(0,0) scale(1);
-    }
-
-    50%{
-        transform:translate(80px,-60px) scale(1.15);
-    }
-
-    100%{
-        transform:translate(-60px,70px) scale(.9);
-    }
-
+    from{transform:translate(0,0) scale(1);}
+    to{transform:translate(60px,-50px) scale(1.25);}
 }
 
+/* PARTICLES */
 
-/* =====================================================
-   LIGHT BEAMS
-===================================================== */
-
-.light-beam{
+.particles{
     position:absolute;
-
-    width:650px;
-    height:2px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(139,92,246,.9),
-            rgba(34,211,238,.8),
-            transparent
-        );
-
-    filter:blur(2px);
-
-    opacity:.3;
-
-    animation:beamMove 10s linear infinite;
-}
-
-.beam-1{
-    left:-400px;
-    top:30%;
-
-    transform:rotate(-35deg);
-}
-
-.beam-2{
-    right:-400px;
-    top:72%;
-
-    transform:rotate(35deg);
-
-    animation-delay:-5s;
-}
-
-@keyframes beamMove{
-
-    0%{
-        transform:
-            translateX(-500px)
-            rotate(-35deg);
-    }
-
-    100%{
-        transform:
-            translateX(1600px)
-            rotate(-35deg);
-    }
-
-}
-
-
-/* =====================================================
-   FLOATING SYMBOLS
-===================================================== */
-
-.floating-rune{
-    position:absolute;
-
-    font-family:Orbitron;
-
-    font-size:30px;
-
-    color:rgba(167,139,250,.16);
-
-    text-shadow:
-        0 0 25px
-        rgba(139,92,246,.5);
-
-    animation:
-        runeFloat
-        12s
-        ease-in-out
-        infinite;
-}
-
-.rune-1{
-    left:10%;
-    top:20%;
-    animation-delay:-2s;
-}
-
-.rune-2{
-    left:25%;
-    top:70%;
-    animation-delay:-7s;
-}
-
-.rune-3{
-    right:13%;
-    top:25%;
-    animation-delay:-4s;
-}
-
-.rune-4{
-    right:25%;
-    bottom:18%;
-    animation-delay:-9s;
-}
-
-.rune-5{
-    left:50%;
-    top:45%;
-    animation-delay:-5s;
-}
-
-@keyframes runeFloat{
-
-    0%{
-        transform:
-            translateY(30px)
-            rotate(0deg);
-
-        opacity:.05;
-    }
-
-    50%{
-        transform:
-            translateY(-40px)
-            rotate(180deg);
-
-        opacity:.28;
-    }
-
-    100%{
-        transform:
-            translateY(30px)
-            rotate(360deg);
-
-        opacity:.05;
-    }
-
-}
-
-
-/* =====================================================
-   PARTICLES
-===================================================== */
-
-#particles{
-    position:fixed;
     inset:0;
-
-    pointer-events:none;
-
-    z-index:-3;
 }
 
 .particle{
     position:absolute;
-
     width:3px;
     height:3px;
-
+    background:#fff;
     border-radius:50%;
-
-    background:#b99cff;
-
-    box-shadow:
-        0 0 8px #8b5cf6;
-
-    animation:
-        particleMove
-        linear infinite;
+    box-shadow:0 0 12px #fff;
+    animation:particleMove linear infinite;
+    opacity:.7;
 }
 
 @keyframes particleMove{
-
     from{
         transform:translateY(110vh);
         opacity:0;
     }
-
-    15%{
-        opacity:.6;
-    }
-
-    85%{
-        opacity:.5;
-    }
-
+    20%{opacity:.8;}
+    80%{opacity:.8;}
     to{
         transform:translateY(-10vh);
         opacity:0;
     }
-
 }
 
-
-/* =====================================================
-   NAVBAR
-===================================================== */
+/* ================= NAVBAR ================= */
 
 nav{
     position:fixed;
-
     top:0;
     left:0;
-
     width:100%;
-    height:76px;
-
-    z-index:5000;
-
+    z-index:100;
+    padding:18px 6%;
     display:flex;
-
-    align-items:center;
     justify-content:space-between;
-
-    padding:0 6%;
-
-    background:
-        rgba(3,4,10,.72);
-
-    backdrop-filter:blur(20px);
-
-    border-bottom:
-        1px solid
-        rgba(255,255,255,.07);
+    align-items:center;
+    backdrop-filter:blur(18px);
+    background:rgba(5,6,12,.58);
+    border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .logo{
-    text-decoration:none;
-
-    color:white;
-
-    font-family:Orbitron;
-
-    font-size:17px;
-
+    font-family:'Orbitron',sans-serif;
+    font-size:19px;
     font-weight:900;
+    letter-spacing:1px;
 }
 
 .logo span{
-    color:#a78bfa;
+    color:#9c5cff;
+    text-shadow:0 0 20px #8d4dff;
 }
 
 .nav-links{
     display:flex;
-
-    align-items:center;
-
-    gap:24px;
-
-    list-style:none;
+    gap:28px;
 }
 
 .nav-links a{
-    color:#aeb3c8;
-
+    color:#ccc;
     text-decoration:none;
-
-    font-size:11px;
-
-    font-weight:800;
-
-    transition:.3s;
+    font-size:14px;
+    font-weight:600;
+    transition:.25s;
 }
 
 .nav-links a:hover{
-    color:white;
-
-    text-shadow:
-        0 0 15px
-        rgba(167,139,250,.7);
+    color:#fff;
+    text-shadow:0 0 15px #9d5cff;
 }
 
-.discord-nav{
+.nav-button{
+    text-decoration:none;
+    color:#fff;
     padding:10px 17px;
-
-    border-radius:11px;
-
-    color:white!important;
-
-    background:
-        linear-gradient(
-            135deg,
-            #5865f2,
-            #8b5cf6,
-            #ec4899
-        );
-
-    background-size:200% 200%;
-
-    box-shadow:
-        0 0 25px
-        rgba(88,101,242,.25);
-
-    animation:
-        discordGlow
-        4s
-        ease
-        infinite;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,.15);
+    background:linear-gradient(135deg,#7438ff,#a34fff);
+    box-shadow:0 0 20px rgba(125,60,255,.3);
+    font-size:13px;
+    font-weight:700;
 }
 
-@keyframes discordGlow{
-
-    0%,100%{
-        background-position:0% 50%;
-    }
-
-    50%{
-        background-position:100% 50%;
-    }
-
-}
-
-.menu{
-    display:none;
-
-    font-size:27px;
-
-    cursor:pointer;
-}
-
-
-/* =====================================================
-   HERO
-===================================================== */
+/* ================= HERO ================= */
 
 .hero{
     min-height:100vh;
-
     display:flex;
-
     align-items:center;
     justify-content:center;
-
     text-align:center;
-
-    padding:
-        140px
-        20px
-        100px;
-
-    position:relative;
+    padding:130px 20px 80px;
 }
 
 .hero-content{
-    max-width:1050px;
-
-    position:relative;
+    max-width:1000px;
 }
 
-.official{
+.badge{
     display:inline-flex;
-
-    padding:
-        9px 18px;
-
-    border:
-        1px solid
-        rgba(139,92,246,.4);
-
-    background:
-        rgba(139,92,246,.08);
-
-    border-radius:50px;
-
-    color:#d7c5ff;
-
-    font-size:10px;
-
-    font-weight:800;
-
-    letter-spacing:3px;
-
+    align-items:center;
+    gap:8px;
+    padding:9px 16px;
+    border:1px solid rgba(160,100,255,.35);
+    background:rgba(120,50,255,.09);
+    border-radius:100px;
+    font-size:12px;
+    color:#cbb5ff;
     margin-bottom:25px;
+    box-shadow:0 0 30px rgba(130,60,255,.12);
+}
+
+.core{
+    position:relative;
+    width:190px;
+    height:190px;
+    margin:0 auto 28px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.core::before,
+.core::after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+}
+
+.core::before{
+    width:100%;
+    height:100%;
+    border:1px solid rgba(160,90,255,.7);
+    box-shadow:
+        0 0 30px #7c38ff,
+        inset 0 0 30px rgba(150,70,255,.3);
+    animation:coreSpin 8s linear infinite;
+}
+
+.core::after{
+    width:72%;
+    height:72%;
+    border:2px dashed rgba(0,220,255,.6);
+    animation:coreSpinReverse 5s linear infinite;
+}
+
+.core-center{
+    width:88px;
+    height:88px;
+    border-radius:25px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:45px;
+    background:linear-gradient(135deg,#7b38ff,#00cfff);
+    box-shadow:
+        0 0 25px #873dff,
+        0 0 70px rgba(0,210,255,.3);
+    animation:corePulse 2s ease-in-out infinite alternate;
+    z-index:2;
+}
+
+@keyframes coreSpin{
+    to{transform:rotate(360deg);}
+}
+
+@keyframes coreSpinReverse{
+    to{transform:rotate(-360deg);}
+}
+
+@keyframes corePulse{
+    from{transform:scale(.92);}
+    to{transform:scale(1.05);}
 }
 
 .hero h1{
-    font-family:Cinzel;
-
-    font-size:
-        clamp(
-            42px,
-            8vw,
-            96px
-        );
-
-    line-height:1.08;
-
+    font-family:'Orbitron',sans-serif;
+    font-size:clamp(36px,7vw,82px);
     font-weight:900;
+    line-height:1.05;
+    letter-spacing:-2px;
+}
 
-    background:
-        linear-gradient(
-            90deg,
-            #fff,
-            #b990ff,
-            #fff,
-            #5be8ff
-        );
-
-    background-size:250%;
-
+.hero h1 span{
+    background:linear-gradient(90deg,#fff,#b982ff,#54eaff,#fff);
+    background-size:300%;
     -webkit-background-clip:text;
-
-    -webkit-text-fill-color:transparent;
-
-    animation:
-        titleShine
-        6s
-        linear
-        infinite;
+    color:transparent;
+    animation:textFlow 5s linear infinite;
 }
 
-@keyframes titleShine{
-
-    to{
-        background-position:250%;
-    }
-
+@keyframes textFlow{
+    to{background-position:300%;}
 }
 
-.hero-sub{
-    max-width:760px;
-
-    margin:
-        25px auto 0;
-
-    color:#a9aec4;
-
-    line-height:1.9;
-
-    font-size:14px;
+.hero p{
+    max-width:700px;
+    margin:25px auto;
+    color:#a9abb9;
+    font-size:16px;
+    line-height:1.8;
 }
 
-.hero-buttons{
+.buttons{
     display:flex;
-
     justify-content:center;
-
+    gap:13px;
     flex-wrap:wrap;
-
-    gap:14px;
-
     margin-top:30px;
 }
 
 .btn{
     display:inline-flex;
-
     align-items:center;
     justify-content:center;
-
-    padding:
-        14px 23px;
-
-    border-radius:12px;
-
+    gap:8px;
     text-decoration:none;
-
-    font-size:12px;
-
-    font-weight:800;
-
+    color:#fff;
+    padding:14px 22px;
+    border-radius:13px;
+    font-weight:700;
+    font-size:14px;
     transition:.3s;
 }
 
 .btn:hover{
-    transform:
-        translateY(-4px)
-        scale(1.02);
+    transform:translateY(-4px);
 }
 
 .primary{
-    color:white;
-
-    background:
-        linear-gradient(
-            135deg,
-            #8b5cf6,
-            #3b82f6
-        );
-
-    box-shadow:
-        0 15px 40px
-        rgba(139,92,246,.2);
+    background:linear-gradient(135deg,#763cff,#a44eff);
+    box-shadow:0 10px 35px rgba(122,55,255,.3);
 }
 
 .secondary{
-    color:white;
-
-    border:
-        1px solid
-        rgba(255,255,255,.12);
-
-    background:
-        rgba(255,255,255,.04);
+    background:rgba(255,255,255,.055);
+    border:1px solid rgba(255,255,255,.12);
 }
 
-.status{
-    display:inline-flex;
-
-    align-items:center;
-
-    gap:9px;
-
-    margin-top:35px;
-
-    color:#7f859b;
-
-    font-size:10px;
-}
-
-.status-dot{
-    width:8px;
-    height:8px;
-
-    border-radius:50%;
-
-    background:#22c55e;
-
-    box-shadow:
-        0 0 15px
-        #22c55e;
-
-    animation:
-        statusPulse
-        2s
-        infinite;
-}
-
-@keyframes statusPulse{
-
-    50%{
-        box-shadow:
-            0 0 27px
-            #22c55e;
-    }
-
-}
-
-
-/* =====================================================
-   SECTIONS
-===================================================== */
+/* ================= GENERAL ================= */
 
 section{
-    padding:
-        100px 6%;
+    padding:100px 6%;
+    position:relative;
 }
 
 .section-title{
     text-align:center;
-
     margin-bottom:55px;
 }
 
 .section-title small{
-    color:#a67cff;
-
-    font-weight:800;
-
-    letter-spacing:4px;
-
-    font-size:9px;
+    color:#9c65ff;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
 }
 
 .section-title h2{
-    font-family:Cinzel;
-
-    font-size:
-        clamp(
-            31px,
-            5vw,
-            52px
-        );
-
+    font-family:'Orbitron',sans-serif;
+    font-size:clamp(28px,5vw,45px);
     margin-top:10px;
 }
 
 .section-title p{
-    color:#9ca3b8;
-
-    max-width:680px;
-
-    margin:
-        14px auto 0;
-
-    line-height:1.8;
-
-    font-size:13px;
-}
-
-
-/* =====================================================
-   IP CARDS
-===================================================== */
-
-.ip-grid{
-    max-width:1050px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:25px;
-}
-
-.ip-card{
-    position:relative;
-
-    padding:32px;
-
-    border-radius:25px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(20,22,38,.94),
-            rgba(7,8,14,.94)
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.09);
-
-    overflow:hidden;
-
-    transition:.4s;
-}
-
-.ip-card:hover{
-    transform:translateY(-8px);
-
-    border-color:
-        rgba(139,92,246,.45);
-
-    box-shadow:
-        0 25px 70px
-        rgba(0,0,0,.45);
-}
-
-.ip-icon{
-    width:55px;
-    height:55px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    border-radius:16px;
-
-    background:
-        rgba(139,92,246,.12);
-
-    font-size:26px;
-
-    margin-bottom:20px;
-}
-
-.ip-card h3{
-    font-size:22px;
-}
-
-.ip-card p{
-    color:#9298ae;
-
-    font-size:12px;
-
-    margin-top:7px;
-}
-
-.ip-row{
-    margin-top:22px;
-
-    padding:13px;
-
-    border-radius:13px;
-
-    background:#05060c;
-
-    border:
-        1px solid
-        rgba(255,255,255,.07);
-}
-
-.ip-label{
-    display:block;
-
-    color:#70768c;
-
-    font-size:8px;
-
-    text-transform:uppercase;
-
-    letter-spacing:2px;
-
-    margin-bottom:7px;
-}
-
-.ip-flex{
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:10px;
-}
-
-.ip-flex code{
-    color:#d8c4ff;
-
-    font-size:11px;
-
-    word-break:break-all;
-}
-
-.copy{
-    flex-shrink:0;
-
-    border:0;
-
-    padding:
-        8px 11px;
-
-    border-radius:9px;
-
-    color:white;
-
-    background:
-        rgba(139,92,246,.2);
-
-    cursor:pointer;
-
-    transition:.25s;
-}
-
-.copy:hover{
-    background:#8b5cf6;
-}
-
-
-/* =====================================================
-   ABOUT
-===================================================== */
-
-.about{
-    max-width:1050px;
-
-    margin:auto;
-
-    padding:45px;
-
-    border-radius:28px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(139,92,246,.11),
-            rgba(34,211,238,.05)
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.09);
-
-    text-align:center;
-}
-
-.about h3{
-    font-family:Cinzel;
-
-    font-size:28px;
-}
-
-.about p{
-    color:#9ca3b8;
-
-    line-height:2;
-
-    font-size:13px;
-
-    max-width:850px;
-
-    margin:
-        15px auto 0;
-}
-
-.offer{
-    display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:12px;
-
-    margin-top:28px;
-}
-
-.offer div{
-    padding:14px;
-
-    border-radius:12px;
-
-    text-align:left;
-
-    background:
-        rgba(255,255,255,.035);
-
-    border:
-        1px solid
-        rgba(255,255,255,.05);
-
-    color:#d9dbe7;
-
-    font-size:12px;
-
-    transition:.3s;
-}
-
-.offer div:hover{
-    transform:translateY(-3px);
-
-    border-color:
-        rgba(139,92,246,.35);
-}
-
-
-/* =====================================================
-   GAME MODES
-===================================================== */
-
-.mode-grid{
-    max-width:1200px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:25px;
-}
-
-.mode{
-    min-height:330px;
-
-    position:relative;
-
-    padding:32px;
-
-    overflow:hidden;
-
-    border-radius:25px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.09);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(19,21,37,.95),
-            rgba(7,8,14,.95)
-        );
-
-    transition:.45s;
-}
-
-.mode:hover{
-    transform:
-        translateY(-10px)
-        scale(1.01);
-
-    border-color:
-        rgba(139,92,246,.5);
-
-    box-shadow:
-        0 25px 70px
-        rgba(0,0,0,.4);
-}
-
-.mode-num{
-    position:absolute;
-
-    top:0;
-    right:20px;
-
-    font-family:Orbitron;
-
-    font-size:80px;
-
-    font-weight:900;
-
-    color:
-        rgba(255,255,255,.025);
-}
-
-.mode-icon{
-    font-size:48px;
-
-    margin-bottom:30px;
-}
-
-.mode h3{
-    font-family:Cinzel;
-
-    font-size:25px;
-}
-
-.mode p{
-    color:#969caf;
-
-    font-size:12px;
-
-    line-height:1.9;
-
+    color:#858796;
     margin-top:12px;
 }
 
-.mode-line{
-    width:55px;
-    height:3px;
+/* ================= SERVER IP ================= */
 
-    border-radius:10px;
-
-    margin-top:22px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #8b5cf6,
-            #22d3ee
-        );
-}
-
-
-/* =====================================================
-   TEAM
-===================================================== */
-
-.team-wrap{
-    max-width:1250px;
-
+.server-box{
+    max-width:900px;
     margin:auto;
+    padding:28px;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:24px;
+    background:rgba(255,255,255,.045);
+    backdrop-filter:blur(15px);
+    box-shadow:0 20px 80px rgba(0,0,0,.3);
 }
 
-.team-heading{
-    display:flex;
-
-    align-items:center;
-
-    gap:18px;
-
-    margin:
-        55px 0 28px;
-}
-
-.team-heading::before,
-.team-heading::after{
-    content:"";
-
-    height:1px;
-
-    flex:1;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(139,92,246,.6)
-        );
-}
-
-.team-heading::after{
-    background:
-        linear-gradient(
-            90deg,
-            rgba(139,92,246,.6),
-            transparent
-        );
-}
-
-.team-heading h3{
-    font-family:Cinzel;
-
-    font-size:22px;
-}
-
-.team-grid{
+.ip-grid{
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:28px;
-
-    justify-items:center;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
 }
 
-
-/* =====================================================
-   UNO CARDS
-===================================================== */
-
-.team-card{
-
-    --c1:#8b5cf6;
-    --c2:#22d3ee;
-
-    width:100%;
-
-    max-width:340px;
-
-    min-height:425px;
-
-    padding:18px;
-
-    position:relative;
-
-    overflow:hidden;
-
-    border-radius:27px;
-
-    background:
-        linear-gradient(#0b0d17,#0b0d17)
-        padding-box,
-
-        linear-gradient(
-            135deg,
-            var(--c1),
-            var(--c2),
-            var(--c1)
-        )
-        border-box;
-
-    border:
-        3px solid
-        transparent;
-
-    box-shadow:
-        0 20px 50px
-        rgba(0,0,0,.45),
-
-        0 0 30px
-        rgba(139,92,246,.08);
-
-    transition:.5s;
+.ip-card{
+    padding:22px;
+    border-radius:18px;
+    background:rgba(0,0,0,.22);
+    border:1px solid rgba(255,255,255,.08);
 }
 
-.team-card::before{
-    content:"";
-
-    position:absolute;
-
-    inset:8px;
-
-    border-radius:20px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.1);
-}
-
-.team-card::after{
-    content:"";
-
-    position:absolute;
-
-    width:230px;
-    height:340px;
-
-    left:50%;
-    top:45px;
-
-    transform:
-        translateX(-50%)
-        rotate(45deg);
-
-    border-radius:48%;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--c1),
-            var(--c2)
-        );
-
-    opacity:.11;
-}
-
-.team-card:hover{
-    transform:
-        translateY(-12px)
-        rotate(-1.5deg)
-        scale(1.02);
-
-    box-shadow:
-        0 35px 80px
-        rgba(0,0,0,.55),
-
-        0 0 50px
-        rgba(139,92,246,.18);
-}
-
-.card-content{
-    min-height:385px;
-
-    height:100%;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:space-between;
-
-    position:relative;
-
-    z-index:2;
-}
-
-.card-top,
-.card-bottom{
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-}
-
-.rank{
-    padding:
-        7px 11px;
-
-    border-radius:30px;
-
-    font-size:8px;
-
-    font-weight:900;
-
-    letter-spacing:1.5px;
-
-    background:
-        rgba(255,255,255,.07);
-
-    border:
-        1px solid
-        rgba(255,255,255,.12);
-}
-
-.corner{
-    font-size:21px;
-
-    color:var(--c1);
-
-    text-shadow:
-        0 0 12px
-        var(--c1);
-}
-
-.avatar{
-    width:125px;
-    height:125px;
-
-    margin:auto;
-
-    border-radius:50%;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    font-size:48px;
-
-    background:
-        rgba(255,255,255,.035);
-
-    border:
-        3px solid
-        var(--c1);
-
-    box-shadow:
-        0 0 35px
-        rgba(139,92,246,.2);
-}
-
-.member{
-    text-align:center;
-}
-
-.member h4{
-    font-family:Orbitron;
-
+.ip-card h3{
     font-size:15px;
-
-    line-height:1.5;
-
-    word-break:break-word;
+    margin-bottom:12px;
 }
 
-.member p{
-    color:#9298ad;
+.ip{
+    font-family:monospace;
+    background:#05060b;
+    padding:12px;
+    border-radius:10px;
+    color:#72e9ff;
+    overflow:auto;
+    white-space:nowrap;
+}
 
-    font-size:10px;
-
+.port{
+    color:#b891ff;
     margin-top:8px;
+    font-size:13px;
 }
 
-.big-symbol{
-    text-align:center;
+/* ================= MODES ================= */
 
-    font-size:30px;
-
-    color:var(--c1);
-
-    text-shadow:
-        0 0 15px
-        var(--c1);
+.modes{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
 }
 
-
-/* Card Colors */
-
-.owner{
-    --c1:#facc15;
-    --c2:#a855f7;
+.mode-card{
+    position:relative;
+    overflow:hidden;
+    min-height:220px;
+    padding:30px;
+    border-radius:24px;
+    background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025));
+    border:1px solid rgba(255,255,255,.1);
+    transition:.35s;
 }
 
-.justin{
-    --c1:#a855f7;
-    --c2:#ec4899;
+.mode-card:hover{
+    transform:translateY(-8px);
+    border-color:#985aff;
+    box-shadow:0 20px 60px rgba(100,40,255,.2);
 }
 
-.ahsan{
-    --c1:#3b82f6;
-    --c2:#22d3ee;
+.mode-icon{
+    font-size:40px;
+    margin-bottom:20px;
 }
 
-.priority{
-    --c1:#22c55e;
-    --c2:#22d3ee;
+.mode-card h3{
+    font-family:'Orbitron',sans-serif;
+    margin-bottom:10px;
 }
 
-.ishan{
-    --c1:#ef4444;
-    --c2:#fb923c;
+.mode-card p{
+    color:#9295a5;
+    line-height:1.7;
+    font-size:14px;
 }
 
-.gudu{
-    --c1:#c4b5fd;
-    --c2:#64748b;
-}
-
-
-/* =====================================================
-   RULES
-===================================================== */
+/* ================= RULES ================= */
 
 .rules{
-    max-width:1100px;
-
+    max-width:950px;
     margin:auto;
-
     display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
+    grid-template-columns:1fr 1fr;
     gap:15px;
 }
 
 .rule{
-    padding:21px;
-
-    border-radius:16px;
-
-    background:
-        rgba(255,255,255,.035);
-
-    border:
-        1px solid
-        rgba(255,255,255,.07);
-
-    transition:.3s;
-}
-
-.rule:hover{
-    transform:translateX(5px);
-
-    background:
-        rgba(139,92,246,.07);
-
-    border-color:
-        rgba(139,92,246,.3);
-}
-
-.rule h4{
-    font-size:14px;
-}
-
-.rule p{
-    color:#9ca3b8;
-
-    font-size:11px;
-
-    line-height:1.7;
-
-    margin-top:7px;
-}
-
-.punishment{
-    max-width:700px;
-
-    margin:
-        30px auto 0;
-
-    text-align:center;
-
     padding:20px;
-
-    border-radius:16px;
-
-    color:#ffd4db;
-
-    background:
-        rgba(239,68,68,.06);
-
-    border:
-        1px solid
-        rgba(239,68,68,.2);
-
-    font-size:12px;
+    border-radius:17px;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.08);
 }
 
-
-/* =====================================================
-   SOCIAL
-===================================================== */
-
-.social{
-    max-width:900px;
-
-    margin:auto;
-
-    padding:
-        60px 30px;
-
-    text-align:center;
-
-    border-radius:30px;
-
-    background:
-        radial-gradient(
-            circle at 50% 0%,
-            rgba(139,92,246,.18),
-            transparent 55%
-        ),
-        rgba(14,16,29,.8);
-
-    border:
-        1px solid
-        rgba(139,92,246,.2);
+.rule strong{
+    display:block;
+    margin-bottom:7px;
 }
 
-.social h2{
-    font-family:Cinzel;
-
-    font-size:38px;
-}
-
-.social p{
-    color:#9ca3b8;
-
-    margin-top:12px;
-
+.rule span{
+    color:#9698a7;
     font-size:13px;
 }
 
-.social-buttons{
-    display:flex;
+/* ================= TEAM UNO CARDS ================= */
 
-    justify-content:center;
-
-    flex-wrap:wrap;
-
-    gap:14px;
-
-    margin-top:28px;
+.team-grid{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
 }
 
+.team-card{
+    position:relative;
+    min-height:220px;
+    padding:24px;
+    border-radius:25px;
+    background:
+        radial-gradient(circle at top right,rgba(255,255,255,.15),transparent 35%),
+        rgba(12,13,22,.85);
+    overflow:hidden;
+    transition:.35s;
+}
 
-/* =====================================================
-   FOOTER
-===================================================== */
+.team-card:hover{
+    transform:translateY(-10px) rotate(-1deg);
+}
 
-footer{
-    padding:
-        35px 6%;
+.team-card::before{
+    content:"";
+    position:absolute;
+    inset:7px;
+    border:3px solid;
+    border-radius:20px;
+    opacity:.8;
+}
 
-    border-top:
-        1px solid
-        rgba(255,255,255,.07);
+.team-card::after{
+    content:"✦";
+    position:absolute;
+    right:18px;
+    bottom:5px;
+    font-size:65px;
+    opacity:.07;
+}
 
-    text-align:center;
+.purple::before{border-color:#9d55ff;}
+.cyan::before{border-color:#00e1ff;}
+.red::before{border-color:#ff4f70;}
+.green::before{border-color:#57ff9a;}
+.gold::before{border-color:#ffd45a;}
 
-    color:#70768b;
-
+.team-role{
+    position:relative;
+    z-index:2;
     font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#aaa;
+    margin-bottom:22px;
+}
 
+.team-name{
+    position:relative;
+    z-index:2;
+    font-size:19px;
+    font-weight:800;
+    line-height:1.4;
+}
+
+.team-icon{
+    position:relative;
+    z-index:2;
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+/* ================= ABOUT ================= */
+
+.about{
+    max-width:950px;
+    margin:auto;
+    text-align:center;
+    padding:35px;
+    border-radius:25px;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.about p{
+    color:#a2a4b1;
     line-height:2;
 }
 
-footer strong{
-    color:#cbb1ff;
+.offer{
+    margin-top:25px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
 }
 
-
-/* =====================================================
-   TOAST
-===================================================== */
-
-#toast{
-    position:fixed;
-
-    left:50%;
-    bottom:25px;
-
-    transform:
-        translate(-50%,100px);
-
-    padding:
-        12px 20px;
-
-    border-radius:12px;
-
-    background:#151725;
-
-    border:
-        1px solid
-        rgba(139,92,246,.4);
-
+.offer span{
+    padding:9px 13px;
+    border-radius:100px;
+    background:rgba(140,70,255,.1);
+    border:1px solid rgba(140,70,255,.25);
+    color:#c7b0ff;
     font-size:12px;
-
-    opacity:0;
-
-    transition:.4s;
-
-    z-index:9999;
 }
 
-#toast.show{
-    opacity:1;
+/* ================= CTA ================= */
 
-    transform:
-        translate(-50%,0);
+.cta{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+    padding:70px 25px;
+    border-radius:30px;
+    background:
+        radial-gradient(circle at 50% 0%,rgba(135,55,255,.2),transparent 50%),
+        rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.1);
 }
 
+.cta h2{
+    font-family:'Orbitron',sans-serif;
+    font-size:clamp(25px,5vw,43px);
+}
 
-/* =====================================================
-   MOBILE
-===================================================== */
+.cta p{
+    color:#999cab;
+    margin:15px auto 25px;
+}
 
-@media(max-width:900px){
+/* ================= FOOTER ================= */
+
+footer{
+    padding:40px 6%;
+    border-top:1px solid rgba(255,255,255,.08);
+    text-align:center;
+    color:#777a88;
+    font-size:13px;
+}
+
+footer strong{
+    color:#a66aff;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:850px){
+
+    nav{
+        padding:15px 5%;
+    }
 
     .nav-links{
-        position:absolute;
-
-        top:76px;
-        left:0;
-
-        width:100%;
-
         display:none;
-
-        flex-direction:column;
-
-        padding:25px;
-
-        background:
-            rgba(3,4,10,.97);
-
-        border-bottom:
-            1px solid
-            rgba(255,255,255,.08);
     }
 
-    .nav-links.open{
-        display:flex;
+    .nav-button{
+        padding:9px 13px;
+        font-size:11px;
     }
 
-    .menu{
-        display:block;
+    .hero{
+        padding-top:120px;
+    }
+
+    .core{
+        width:150px;
+        height:150px;
+    }
+
+    .core-center{
+        width:70px;
+        height:70px;
+        font-size:34px;
+        border-radius:20px;
+    }
+
+    .hero h1{
+        letter-spacing:-1px;
+    }
+
+    .hero p{
+        font-size:14px;
     }
 
     .ip-grid,
-    .mode-grid,
+    .rules{
+        grid-template-columns:1fr;
+    }
+
+    .modes{
+        grid-template-columns:1fr;
+    }
+
+    .team-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    section{
+        padding:75px 5%;
+    }
+}
+
+@media(max-width:520px){
+
+    .logo{
+        font-size:14px;
+    }
+
+    .hero{
+        min-height:auto;
+        padding-bottom:70px;
+    }
+
+    .badge{
+        font-size:10px;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .buttons{
+        flex-direction:column;
+        width:100%;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .server-box{
+        padding:17px;
+    }
+
     .team-grid{
         grid-template-columns:1fr;
     }
 
     .team-card{
-        max-width:430px;
-    }
-
-}
-
-
-@media(max-width:600px){
-
-    section{
-        padding:
-            75px 5%;
-    }
-
-    .hero{
-        padding-top:115px;
-    }
-
-    .hero h1{
-        font-size:42px;
-    }
-
-    .hero-sub{
-        font-size:12px;
-    }
-
-    .ip-card,
-    .mode{
-        padding:25px;
+        min-height:190px;
     }
 
     .about{
-        padding:
-            30px 18px;
+        padding:25px 18px;
     }
-
-    .offer,
-    .rules{
-        grid-template-columns:1fr;
-    }
-
-    .social h2{
-        font-size:29px;
-    }
-
-    .floating-rune{
-        font-size:22px;
-    }
-
 }
-
 </style>
 </head>
 
-
 <body>
 
+<!-- ================= ANIMATED BACKGROUND ================= -->
 
-<!-- =====================================================
-     ANIMATED BACKGROUND
-===================================================== -->
+<div class="background">
+    <div class="grid"></div>
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+    <div class="orb three"></div>
 
-<div class="animated-bg">
-
-    <div class="glow-orb orb-1"></div>
-    <div class="glow-orb orb-2"></div>
-    <div class="glow-orb orb-3"></div>
-
-    <div class="light-beam beam-1"></div>
-    <div class="light-beam beam-2"></div>
-
-    <div class="floating-rune rune-1">⚡</div>
-    <div class="floating-rune rune-2">◇</div>
-    <div class="floating-rune rune-3">⚔</div>
-    <div class="floating-rune rune-4">✦</div>
-    <div class="floating-rune rune-5">◆</div>
-
+    <div class="particles">
+        <i class="particle" style="left:8%;animation-duration:8s;"></i>
+        <i class="particle" style="left:17%;animation-duration:12s;"></i>
+        <i class="particle" style="left:26%;animation-duration:10s;"></i>
+        <i class="particle" style="left:36%;animation-duration:14s;"></i>
+        <i class="particle" style="left:48%;animation-duration:9s;"></i>
+        <i class="particle" style="left:59%;animation-duration:13s;"></i>
+        <i class="particle" style="left:68%;animation-duration:11s;"></i>
+        <i class="particle" style="left:78%;animation-duration:15s;"></i>
+        <i class="particle" style="left:89%;animation-duration:10s;"></i>
+        <i class="particle" style="left:95%;animation-duration:12s;"></i>
+    </div>
 </div>
 
-
-<div id="particles"></div>
-
-
-<!-- =====================================================
-     NAVBAR
-===================================================== -->
+<!-- ================= NAV ================= -->
 
 <nav>
+    <div class="logo">𓆩⚡ <span>VØRKNYX</span> MC ⚔𓆪</div>
 
-    <a href="#home" class="logo">
-        ⚡ VØRKNYX <span>MC</span>
-    </a>
-
-    <div class="menu" onclick="toggleMenu()">
-        ☰
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#server">Server</a>
+        <a href="#modes">Modes</a>
+        <a href="#team">Team</a>
+        <a href="#rules">Rules</a>
     </div>
 
-    <ul class="nav-links" id="navLinks">
-
-        <li>
-            <a href="#home">HOME</a>
-        </li>
-
-        <li>
-            <a href="#play">PLAY</a>
-        </li>
-
-        <li>
-            <a href="#modes">MODES</a>
-        </li>
-
-        <li>
-            <a href="#team">TEAM</a>
-        </li>
-
-        <li>
-            <a href="#rules">RULES</a>
-        </li>
-
-        <li>
-            <a
-                href="https://discord.gg/8ZCqBp2cg"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="discord-nav"
-            >
-                💜 DISCORD
-            </a>
-        </li>
-
-    </ul>
-
+    <a class="nav-button" href="https://discord.gg/8ZCqBp2cg" target="_blank">
+        Discord
+    </a>
 </nav>
 
-
-<!-- =====================================================
-     HERO
-===================================================== -->
+<!-- ================= HERO ================= -->
 
 <section class="hero" id="home">
 
-    <div class="hero-content">
+<div class="hero-content">
 
-        <div class="official">
-            ⚡ OFFICIAL MINECRAFT NETWORK
-        </div>
-
-        <h1>
-            𓆩⚡ VØRKNYX MC ⚔𓆪
-        </h1>
-
-        <p class="hero-sub">
-
-            Welcome to Vorknyx MC — a friendly Minecraft
-            Server and Discord Community where players
-            can enjoy survival, events, giveaways,
-            competition and an active community.
-
-        </p>
-
-        <div class="hero-buttons">
-
-            <a
-                href="#play"
-                class="btn primary"
-            >
-                🎮 PLAY NOW
-            </a>
-
-            <a
-                href="https://discord.gg/8ZCqBp2cg"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn secondary"
-            >
-                💜 DISCORD
-            </a>
-
-        </div>
-
-        <div class="status">
-
-            <span class="status-dot"></span>
-
-            NETWORK ONLINE • READY FOR ADVENTURE
-
-        </div>
-
+    <div class="badge">
+        ⚡ OFFICIAL VØRKNYX MC NETWORK
     </div>
+
+    <div class="core">
+        <div class="core-center">⚔️</div>
+    </div>
+
+    <h1>
+        <span>VØRKNYX MC</span>
+    </h1>
+
+    <p>
+        Welcome to Vorknyx MC — a friendly Minecraft Server and
+        Discord Community where players can enjoy survival,
+        events, giveaways and an active community.
+    </p>
+
+    <div class="buttons">
+        <a href="#server" class="btn primary">
+            🎮 Join Server
+        </a>
+
+        <a href="https://discord.gg/8ZCqBp2cg"
+           target="_blank"
+           class="btn secondary">
+            💬 Discord
+        </a>
+
+        <a href="http://www.youtube.com/@JustinPlayzzYTT"
+           target="_blank"
+           class="btn secondary">
+            ▶️ YouTube
+        </a>
+    </div>
+
+</div>
 
 </section>
 
+<!-- ================= SERVER ================= -->
 
-<!-- =====================================================
-     SERVER IP
-===================================================== -->
+<section id="server">
 
-<section id="play">
+<div class="section-title">
+    <small>CONNECT</small>
+    <h2>Server Information</h2>
+    <p>Use these official IP details to join Vorknyx MC.</p>
+</div>
 
-    <div class="section-title">
-
-        <small>
-            CONNECT TO THE NETWORK
-        </small>
-
-        <h2>
-            SERVER IP
-        </h2>
-
-        <p>
-            Use these official connection details
-            to join Vorknyx MC.
-        </p>
-
-    </div>
-
+<div class="server-box">
 
     <div class="ip-grid">
 
-
-        <!-- JAVA -->
-
         <div class="ip-card">
-
-            <div class="ip-icon">
-                ☕
-            </div>
-
-            <h3>
-                Java Edition
-            </h3>
-
-            <p>
-                Minecraft Java Edition
-            </p>
-
-            <div class="ip-row">
-
-                <span class="ip-label">
-                    Server Address
-                </span>
-
-                <div class="ip-flex">
-
-                    <code id="javaIP">
-                        node-2.lightingmc.net
-                    </code>
-
-                    <button
-                        class="copy"
-                        onclick="copyText('javaIP')"
-                    >
-                        COPY
-                    </button>
-
-                </div>
-
-            </div>
-
+            <h3>☕ Java Edition</h3>
+            <div class="ip">node-2.lightingmc.net</div>
         </div>
 
-
-        <!-- BEDROCK -->
-
         <div class="ip-card">
-
-            <div class="ip-icon">
-                📱
-            </div>
-
-            <h3>
-                Bedrock Edition
-            </h3>
-
-            <p>
-                Minecraft Bedrock Edition
-            </p>
-
-            <div class="ip-row">
-
-                <span class="ip-label">
-                    Server Address
-                </span>
-
-                <div class="ip-flex">
-
-                    <code id="bedrockIP">
-                        node-2.lightingmc.net
-                    </code>
-
-                    <button
-                        class="copy"
-                        onclick="copyText('bedrockIP')"
-                    >
-                        COPY
-                    </button>
-
-                </div>
-
-            </div>
-
-            <div class="ip-row">
-
-                <span class="ip-label">
-                    Port
-                </span>
-
-                <div class="ip-flex">
-
-                    <code id="bedrockPort">
-                        25568
-                    </code>
-
-                    <button
-                        class="copy"
-                        onclick="copyText('bedrockPort')"
-                    >
-                        COPY
-                    </button>
-
-                </div>
-
-            </div>
-
+            <h3>📱 Bedrock Edition</h3>
+            <div class="ip">node-2.lightingmc.net</div>
+            <div class="port">Port: 25568</div>
         </div>
 
     </div>
 
-</section>
-
-
-<!-- =====================================================
-     ABOUT
-===================================================== -->
-
-<section>
-
-    <div class="about">
-
-        <h3>
-            ⚡ Welcome to Vorknyx MC
-        </h3>
-
-        <p>
-
-            Welcome to Vorknyx MC — a friendly Minecraft
-            Server and Discord Community where players
-            can enjoy survival, events, giveaways,
-            server support, updates and an active community.
-
-        </p>
-
-        <div class="offer">
-
-            <div>
-                🎮 Minecraft Survival Gameplay
-            </div>
-
-            <div>
-                🤝 Friendly & Active Community
-            </div>
-
-            <div>
-                🎉 Events & Giveaways
-            </div>
-
-            <div>
-                🛠️ Server Support & Updates
-            </div>
-
-            <div>
-                💬 Fun Chats & Voice Channels
-            </div>
-
-            <div>
-                ⚔️ Competitive Gameplay
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
-
-<!-- =====================================================
-     GAME MODES
-===================================================== -->
+<!-- ================= MODES ================= -->
 
 <section id="modes">
 
-    <div class="section-title">
+<div class="section-title">
+    <small>GAMEPLAY</small>
+    <h2>Our Game Modes</h2>
+    <p>Choose your battlefield and start your adventure.</p>
+</div>
 
-        <small>
-            CHOOSE YOUR ADVENTURE
-        </small>
+<div class="modes">
 
-        <h2>
-            GAME MODES
-        </h2>
-
+    <div class="mode-card">
+        <div class="mode-icon">❤️‍🔥</div>
+        <h3>Lifesteal</h3>
         <p>
-            Three different experiences.
-            One Vorknyx network.
+            Fight, survive and dominate. Every battle can
+            change your journey.
         </p>
-
     </div>
 
-
-    <div class="mode-grid">
-
-
-        <div class="mode">
-
-            <div class="mode-num">
-                01
-            </div>
-
-            <div class="mode-icon">
-                ❤️
-            </div>
-
-            <h3>
-                Lifesteal
-            </h3>
-
-            <p>
-                Survive, fight and become stronger.
-                Build your empire and protect your hearts.
-            </p>
-
-            <div class="mode-line"></div>
-
-        </div>
-
-
-        <div class="mode">
-
-            <div class="mode-num">
-                02
-            </div>
-
-            <div class="mode-icon">
-                ⚔️
-            </div>
-
-            <h3>
-                Practice
-            </h3>
-
-            <p>
-                Train your PvP skills, challenge players
-                and prove yourself in battle.
-            </p>
-
-            <div class="mode-line"></div>
-
-        </div>
-
-
-        <div class="mode">
-
-            <div class="mode-num">
-                03
-            </div>
-
-            <div class="mode-icon">
-                🏛️
-            </div>
-
-            <h3>
-                Pillars of Fortune
-            </h3>
-
-            <p>
-                Take risks, discover rewards and
-                experience a unique Minecraft challenge.
-            </p>
-
-            <div class="mode-line"></div>
-
-        </div>
-
-
+    <div class="mode-card">
+        <div class="mode-icon">⚔️</div>
+        <h3>Practice</h3>
+        <p>
+            Sharpen your PvP skills and become one of
+            the strongest fighters.
+        </p>
     </div>
+
+    <div class="mode-card">
+        <div class="mode-icon">🏛️</div>
+        <h3>Pillars of Fortune</h3>
+        <p>
+            Take your chances, survive the challenge and
+            prove your luck.
+        </p>
+    </div>
+
+</div>
 
 </section>
 
-
-<!-- =====================================================
-     TEAM
-===================================================== -->
-
-<section id="team">
-
-    <div class="section-title">
-
-        <small>
-            THE PEOPLE BEHIND THE NETWORK
-        </small>
-
-        <h2>
-            ⚔ OUR TEAM ⚔
-        </h2>
-
-        <p>
-            Meet the people who help build
-            and manage the Vorknyx MC community.
-        </p>
-
-    </div>
-
-
-    <div class="team-wrap">
-
-
-        <!-- OWNER -->
-
-        <div class="team-heading">
-            <h3>👑 OWNER</h3>
-        </div>
-
-        <div class="team-grid">
-
-            <div class="team-card owner">
-
-                <div class="card-content">
-
-                    <div class="card-top">
-
-                        <span class="rank">
-                            OWNER
-                        </span>
-
-                        <span class="corner">
-                            👑
-                        </span>
-
-                    </div>
-
-                    <div class="avatar">
-                        👑
-                    </div>
-
-                    <div class="member">
-
-                        <h4>
-                            𝗩𝗼𝗿𝗸𝗻𝘆𝘅-𝐓𝐡𝐞 ᵍᵒᵈ ✨
-                        </h4>
-
-                        <p>
-                            Supreme Owner
-                        </p>
-
-                    </div>
-
-                    <div class="big-symbol">
-                        ⚡
-                    </div>
-
-                    <div class="card-bottom">
-
-                        <span class="corner">👑</span>
-                        <span class="corner">👑</span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- FOUNDERS -->
-
-        <div class="team-heading">
-            <h3>✨ FOUNDERS</h3>
-        </div>
-
-        <div class="team-grid">
-
-
-            <div class="team-card justin">
-
-                <div class="card-content">
-
-                    <div class="card-top">
-
-                        <span class="rank">
-                            FOUNDER
-                        </span>
-
-                        <span class="corner">
-                            ✨
-                        </span>
-
-                    </div>
-
-                    <div class="avatar">
-                        🎬
-                    </div>
-
-                    <div class="member">
-
-                        <h4>
-                            Justin Playzz
-                        </h4>
-
-                        <p>
-                            Founder
-                        </p>
-
-                    </div>
-
-                    <div class="big-symbol">
-                        ✦
-                    </div>
-
-                    <div class="card-bottom">
-
-                        <span class="corner">✨</span>
-                        <span class="corner">✨</span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="team-card ahsan">
-
-                <div class="card-content">
-
-                    <div class="card-top">
-
-                        <span class="rank">
-                            FOUNDER
-                        </span>
-
-                        <span class="corner">
-                            ✦
-                        </span>
-
-                    </div>
-
-                    <div class="avatar">
-                        👑
-                    </div>
-
-                    <div class="member">
-
-                        <h4>
-                            𝐀𝐇𝐒𝐀𝐍™
-                        </h4>
-
-                        <p>
-                            Founder
-                        </p>
-
-                    </div>
-
-                    <div class="big-symbol">
-                        ◆
-                    </div>
-
-                    <div class="card-bottom">
-
-                        <span class="corner">✦</span>
-                        <span class="corner">✦</span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-        <!-- MANAGER -->
-
-        <div class="team-heading">
-            <h3>🛡️ MANAGER</h3>
-        </div>
-
-        <div class="team-grid">
-
-            <div class="team-card priority">
-
-                <div class="card-content">
-
-                    <div class="card-top">
-
-                        <span class="rank">
-                            MANAGER
-                        </span>
-
-                        <span class="corner">
-                            🛡️
-                        </span>
-
-                    </div>
-
-                    <div class="avatar">
-                        ⚫
-                    </div>
-
-                    <div class="member">
-
-                        <h4>
-                            ♢𝓼𝓵𝓲𝓰𝓱𝓽𝓮𝓻
-                        </h4>
-
-                        <p>
-                            Network Manager
-                        </p>
-
-                    </div>
-
-                    <div class="big-symbol">
-                        🛡️
-                    </div>
-
-                    <div class="card-bottom">
-
-                        <span class="corner">♢</span>
-                        <span class="corner">♢</span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- MODERATOR -->
-
-        <div class="team-heading">
-            <h3>⚔️ MODERATOR</h3>
-        </div>
-
-        <div class="team-grid">
-
-            <div class="team-card ishan">
-
-                <div class="card-content">
-
-                    <div class="card-top">
-
-                        <span class="rank">
-                            MODERATOR
-                        </span>
-
-                        <span class="corner">
-                            ⚔️
-                        </span>
-
-                    </div>
-
-                    <div class="avatar">
-                        🔥
-                    </div>
-
-                    <div class="member">
-
-                        <h4>
-                            亗 𝓘𝓼𝓱𝓪𝓷𝓖𝓪𝓶𝓲𝓷𝓰 ⚔️🔥
-                        </h4>
-
-                        <p>
-                            Community Moderator
-                        </p>
-
-                    </div>
-
-                    <div class="big-symbol">
-                        ⚔️
-                    </div>
-
-                    <div class="card-bottom">
-
-                        <span class="corner">亗</span>
-                        <span class="corner">亗</span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- BROTHER -->
-
-        <div class="team-heading">
-            <h3>🖤 BROTHER</h3>
-        </div>
-
-        <div class="team-grid">
-
-            <div class="team-card gudu">
-
-                <div class="card-content">
-
-                    <div class="card-top">
-
-                        <span class="rank">
-                            BROTHER
-                        </span>
-
-                        <span class="corner">
-                            🖤
-                        </span>
-
-                    </div>
-
-                    <div class="avatar">
-                        🖤
-                    </div>
-
-                    <div class="member">
-
-                        <h4>
-                            ⟦ 𝙂𝙐𝘿𝙐𝙈𝘼𝙃𝙀𝙔 ⟧
-                        </h4>
-
-                        <p>
-                            Vorknyx Brother
-                        </p>
-
-                    </div>
-
-                    <div class="big-symbol">
-                        ⚡
-                    </div>
-
-                    <div class="card-bottom">
-
-                        <span class="corner">🖤</span>
-                        <span class="corner">🖤</span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     RULES
-===================================================== -->
-
-<section id="rules">
-
-    <div class="section-title">
-
-        <small>
-            COMMUNITY GUIDELINES
-        </small>
-
-        <h2>
-            SERVER RULES
-        </h2>
-
-        <p>
-            Play fair. Stay respectful.
-            Keep Vorknyx MC enjoyable for everyone.
-        </p>
-
-    </div>
-
-
-    <div class="rules">
-
-        <div class="rule">
-
-            <h4>
-                🛡️ Respect Everyone
-            </h4>
-
-            <p>
-                Be respectful to all members and players.
-            </p>
-
-        </div>
-
-
-        <div class="rule">
-
-            <h4>
-                📨 No Spamming
-            </h4>
-
-            <p>
-                No message, ping or voice chat spam.
-            </p>
-
-        </div>
-
-
-        <div class="rule">
-
-            <h4>
-                🌿 Keep It Clean
-            </h4>
-
-            <p>
-                No NSFW or inappropriate content.
-            </p>
-
-        </div>
-
-
-        <div class="rule">
-
-            <h4>
-                🚩 No Advertising
-            </h4>
-
-            <p>
-                No self-promotion or unwanted invites.
-            </p>
-
-        </div>
-
-
-        <div class="rule">
-
-            <h4>
-                ⚒️ Fair Play Only
-            </h4>
-
-            <p>
-                No hacks, cheats, x-ray or unfair exploits.
-            </p>
-
-        </div>
-
-
-        <div class="rule">
-
-            <h4>
-                👮 Respect Staff
-            </h4>
-
-            <p>
-                Follow staff instructions and decisions.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="punishment">
-
-        ⚠️ <strong>PUNISHMENTS</strong>
-
-        <br><br>
-
-        📍 Warn ➜ 🔇 Mute ➜ 🥾 Kick ➜ 🔨 Ban
-
-        <br><br>
-
-        ☠️ Cheating & Exploiting = Instant Ban
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     SOCIAL
-===================================================== -->
+<!-- ================= ABOUT ================= -->
 
 <section>
 
-    <div class="social">
+<div class="section-title">
+    <small>COMMUNITY</small>
+    <h2>Why Vorknyx MC?</h2>
+</div>
 
-        <h2>
-            JOIN VORKNYX MC
-        </h2>
+<div class="about">
 
-        <p>
-            Join our Discord for support, updates,
-            events, giveaways and community news.
-        </p>
+    <p>
+        Welcome to <b>Vorknyx MC</b> ⚡ — a Minecraft community
+        built for players who love survival, PvP, events and
+        having fun together.
+    </p>
 
-        <div class="social-buttons">
-
-            <a
-                href="https://discord.gg/8ZCqBp2cg"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn primary"
-            >
-                💜 DISCORD
-            </a>
-
-
-            <a
-                href="https://www.youtube.com/@JustinPlayzzYTT"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn secondary"
-            >
-                ▶ YOUTUBE
-            </a>
-
-        </div>
-
+    <div class="offer">
+        <span>🎮 Survival Gameplay</span>
+        <span>🤝 Friendly Community</span>
+        <span>🎉 Events & Giveaways</span>
+        <span>🛠️ Server Support</span>
+        <span>💬 Fun Chats</span>
+        <span>🎙️ Voice Channels</span>
     </div>
+
+</div>
 
 </section>
 
+<!-- ================= TEAM ================= -->
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+<section id="team">
+
+<div class="section-title">
+    <small>THE PEOPLE BEHIND VØRKNYX</small>
+    <h2>Our Team</h2>
+    <p>The people who make Vorknyx MC possible.</p>
+</div>
+
+<div class="team-grid">
+
+    <!-- OWNER -->
+
+    <div class="team-card purple">
+        <div class="team-icon">👑</div>
+        <div class="team-role">Owner</div>
+        <div class="team-name">
+            𝗩𝗼𝗿𝗸𝗻𝘆𝘅-𝐓𝐡𝐞 ᵍᵒᵈ ✨
+        </div>
+    </div>
+
+    <!-- FOUNDER -->
+
+    <div class="team-card cyan">
+        <div class="team-icon">⚡</div>
+        <div class="team-role">Founder</div>
+        <div class="team-name">
+            Justin Playzz
+        </div>
+    </div>
+
+    <div class="team-card red">
+        <div class="team-icon">🔥</div>
+        <div class="team-role">Founder</div>
+        <div class="team-name">
+            𝐀𝐇𝐒𝐀𝐍™
+        </div>
+    </div>
+
+    <!-- MANAGER -->
+
+    <div class="team-card gold">
+        <div class="team-icon">💎</div>
+        <div class="team-role">Manager</div>
+        <div class="team-name">
+            ♢𝓼𝓵𝓲𝓰𝓱𝓽𝓮𝓻 ⚫
+        </div>
+    </div>
+
+    <!-- MODERATOR -->
+
+    <div class="team-card green">
+        <div class="team-icon">🛡️</div>
+        <div class="team-role">Moderator</div>
+        <div class="team-name">
+            亗 𝓘𝓼𝓱𝓪𝓷𝓖𝓪𝓶𝓲𝓷𝓰 ⚔️🔥
+        </div>
+    </div>
+
+    <!-- BROTHER -->
+
+    <div class="team-card purple">
+        <div class="team-icon">🖤</div>
+        <div class="team-role">Brother</div>
+        <div class="team-name">
+            ⟦ 𝙂𝙐𝘿𝙐𝙈𝘼𝙃𝙀𝙔 ⟧ 🖤
+        </div>
+    </div>
+
+</div>
+
+</section>
+
+<!-- ================= RULES ================= -->
+
+<section id="rules">
+
+<div class="section-title">
+    <small>COMMUNITY GUIDELINES</small>
+    <h2>Server Rules</h2>
+    <p>Play fair. Respect everyone. Have fun.</p>
+</div>
+
+<div class="rules">
+
+    <div class="rule">
+        <strong>🛡️ Respect Everyone</strong>
+        <span>Be respectful to all members.</span>
+    </div>
+
+    <div class="rule">
+        <strong>📨 No Spamming</strong>
+        <span>No message, ping or VC spam.</span>
+    </div>
+
+    <div class="rule">
+        <strong>🌿 Keep It Clean</strong>
+        <span>No NSFW or inappropriate content.</span>
+    </div>
+
+    <div class="rule">
+        <strong>🚩 No Advertising</strong>
+        <span>No self-promotion or unwanted invites.</span>
+    </div>
+
+    <div class="rule">
+        <strong>⚒️ Fair Play Only</strong>
+        <span>No hacks, cheats, X-Ray or exploits.</span>
+    </div>
+
+    <div class="rule">
+        <strong>👮 Respect Staff</strong>
+        <span>Follow staff instructions.</span>
+    </div>
+
+    <div class="rule">
+        <strong>⚠️ Punishments</strong>
+        <span>Warn → Mute → Kick → Ban.</span>
+    </div>
+
+    <div class="rule">
+        <strong>☠️ Cheating & Exploiting</strong>
+        <span>Cheating or exploiting may result in an instant ban.</span>
+    </div>
+
+</div>
+
+</section>
+
+<!-- ================= DISCORD CTA ================= -->
+
+<section>
+
+<div class="cta">
+
+    <h2>Join The Vorknyx Community ⚡</h2>
+
+    <p>
+        For more enquiries, updates, support, events and
+        community chats — join our Discord.
+    </p>
+
+    <div class="buttons">
+
+        <a href="https://discord.gg/8ZCqBp2cg"
+           target="_blank"
+           class="btn primary">
+            💬 Join Discord
+        </a>
+
+        <a href="http://www.youtube.com/@JustinPlayzzYTT"
+           target="_blank"
+           class="btn secondary">
+            ▶️ Subscribe on YouTube
+        </a>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
-    © 2026
+    <p>
+        ⚡ <strong>VØRKNYX MC</strong> ⚔️
+    </p>
 
-    <strong>
-        𓆩⚡ VØRKNYX MC ⚔𓆪
-    </strong>
-
-    <br>
-
-    Official Minecraft Network
-
-    <br>
-
-    ⚔ Play Fair
-    •
-    🤝 Stay Respectful
-    •
-    🎮 Have Fun
+    <p style="margin-top:8px;">
+        © 2026 Vorknyx MC • All Rights Reserved
+    </p>
 
 </footer>
-
-
-<div id="toast">
-    ✓ Copied successfully
-</div>
-
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
-<script>
-
-/* COPY IP */
-
-function copyText(id){
-
-    const element =
-        document.getElementById(id);
-
-    const text =
-        element.innerText.trim();
-
-    if(
-        navigator.clipboard &&
-        window.isSecureContext
-    ){
-
-        navigator.clipboard.writeText(text);
-
-    }else{
-
-        const area =
-            document.createElement("textarea");
-
-        area.value=text;
-
-        document.body.appendChild(area);
-
-        area.select();
-
-        document.execCommand("copy");
-
-        area.remove();
-
-    }
-
-
-    const toast =
-        document.getElementById("toast");
-
-    toast.classList.add("show");
-
-    setTimeout(
-        ()=>{
-            toast.classList.remove("show");
-        },
-        2200
-    );
-
-}
-
-
-/* MOBILE MENU */
-
-function toggleMenu(){
-
-    document
-        .getElementById("navLinks")
-        .classList.toggle("open");
-
-}
-
-
-/* CLOSE MOBILE MENU */
-
-document
-    .querySelectorAll(".nav-links a")
-    .forEach(link=>{
-
-        link.addEventListener(
-            "click",
-            ()=>{
-                document
-                    .getElementById("navLinks")
-                    .classList.remove("open");
-            }
-        );
-
-    });
-
-
-/* PARTICLES */
-
-const particles =
-    document.getElementById("particles");
-
-for(let i=0;i<55;i++){
-
-    const p =
-        document.createElement("div");
-
-    p.className="particle";
-
-    p.style.left =
-        Math.random()*100+"%";
-
-    p.style.animationDuration =
-        (8+Math.random()*16)+"s";
-
-    p.style.animationDelay =
-        (-Math.random()*18)+"s";
-
-    p.style.transform =
-        `scale(${.5+Math.random()*1.5})`;
-
-    particles.appendChild(p);
-
-}
-
-</script>
 
 </body>
 </html>
